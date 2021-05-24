@@ -17,6 +17,7 @@ MatPlotLib 1.1.0
 Python 2.7
 """
 
+import cgi
 import matplotlib
 
 matplotlib.use('Agg', warn=False)
@@ -1025,7 +1026,7 @@ def get_counts(label, colorby, num_categories, dir_path, level, color_data,
             tax = dat
             split_label = [i for i in tax.strip().split(";")]
             split_label[-1] = "<a href=javascript:gg(\'%s\');>%s</a>" % \
-                (split_label[-1].replace(' ', '+'),
+                (cgi.escape(split_label[-1].replace(' ', '+')),
                  split_label[-1].replace(' ', '&nbsp;'))
             joined_label = ';'.join(split_label).replace('"', '')
             row_sum = sum([float(i) for i in data_table[ct]])
