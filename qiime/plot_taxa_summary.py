@@ -21,6 +21,7 @@ import cgi
 import matplotlib
 
 matplotlib.use('Agg', warn=False)
+from matplotlib import rcParams
 from matplotlib.font_manager import FontProperties
 from matplotlib.pyplot import (rc, axis, title, axes, pie, clf,
                                savefig, figure, close)
@@ -32,6 +33,8 @@ import os
 import shutil
 from qiime.colors import (data_colors, get_group_colors)
 from qiime.parse import group_by_field
+
+rcParams.update({'figure.autolayout': True})
 
 ALPHABET = "ABCDEFGHIJKLMNOPQRSTUZWXYZ"
 ALPHABET += ALPHABET.lower()
